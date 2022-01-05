@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-first-app-with-rs
+  labels:
+    type: front-end
+spec:
+  selector:
+    matchLabels:
+      env: Production
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        env: Production
+    spec:
+     containers:
+       - image:  nginx
+         name:  my-nginx
+         
